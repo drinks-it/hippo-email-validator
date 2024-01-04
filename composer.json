@@ -1,5 +1,5 @@
 {
-  "name": "maximgubar/hippo-email-validator",
+  "name": "drinks-it/hippo-email-validator",
   "type": "library",
   "description": "Library for validating email address with emailhippo service",
   "keywords": ["email", "validation", "emailhippo"],
@@ -12,9 +12,9 @@
     }
   ],
   "require": {
-    "php": ">=7.4.9",
+    "php": "^7.4.9 || ^8.0 || ^8.1 || ^8.2",
     "psr/log": "^1.1",
-    "symfony/http-client": "^5.1"
+    "symfony/http-client": "^5.1 || ^6.0"
   },
   "autoload": {
     "psr-4": {
