@@ -28,6 +28,11 @@ class Validator
 
         try {
             $validationResult = $this->validate($email);
+            if (isset($validationResult['emailVerification']['mailboxVerification']['reason'])
+                && $validationResult['emailVerification']['mailboxVerification']['reason'] === 'TransientNetworkFault'
+            ) {
+                return false;
+            }
             return isset($validationResult['hippoTrust']['score'])
                 && ((float)$validationResult['hippoTrust']['score'] >= $this->config->getMinimumHippoScore());
         } catch (\Exception $exception) {
