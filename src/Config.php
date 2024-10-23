@@ -12,16 +12,20 @@ class Config implements ConfigInterface
 
     private float $minimumHippoScore;
 
+    private bool $isLoggingEnabled;
+
     public function __construct(
         bool $isEnabled,
         string $apiUrl,
         string $apiKey,
-        float $minimumHippoScore
+        float $minimumHippoScore,
+        bool $isLoggingEnabled
     ) {
         $this->isEnabled = $isEnabled;
         $this->apiUrl = $apiUrl;
         $this->apiKey = $apiKey;
         $this->minimumHippoScore = $minimumHippoScore;
+        $this->isLoggingEnabled = $isLoggingEnabled;
     }
 
     public function isEnabled(): bool
@@ -42,5 +46,10 @@ class Config implements ConfigInterface
     public function getMinimumHippoScore(): float
     {
         return $this->minimumHippoScore;
+    }
+
+    public function isLoggingEnabled(): bool
+    {
+        return $this->isLoggingEnabled;
     }
 }

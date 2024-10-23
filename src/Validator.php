@@ -70,6 +70,13 @@ class Validator
                 $email
             )
         );
-        return $response->toArray();
+        $responseData = $response->toArray();
+        if ($this->config->isLoggingEnabled()) {
+            $this->logger->info(sprintf('Validating email %s', $email), [
+                'email' => $email,
+                'response' => $responseData
+            ]);
+        }
+        return $responseData;
     }
 }
