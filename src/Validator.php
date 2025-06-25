@@ -59,7 +59,7 @@ class Validator
         }
     }
 
-    private function validate($email): array
+    private function validate(string $email): array
     {
         $response = $this->httpClient->request(
             'GET',
